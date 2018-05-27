@@ -8,7 +8,7 @@ RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         unzip; \
-    docker-php-ext-install mysqli;
+    docker-php-ext-install mysql mysqli;
 
 RUN a2enmod rewrite expires
 
