@@ -1,5 +1,8 @@
 FROM php:5.6-apache
 
+ARG UID=1000
+ARG GID=1000
+
 WORKDIR /tmp
 
 ENV DLE_VERSION 10.0
@@ -9,6 +12,9 @@ RUN set -ex; \
     apt-get install -y --no-install-recommends \
         unzip; \
     docker-php-ext-install mysql mysqli;
+
+RUN usermod -u ${UID} www-data
+RUN groupmod -g ${GID} www-data
 
 RUN a2enmod rewrite expires
 
