@@ -7,7 +7,7 @@ RUN set -ex; \
 
 RUN a2enmod rewrite expires
 
-ENV DLE_VERSION 10.2
+ENV DLE_VERSION 10.0
 
 RUN set -ex; \
     curl -o dle.zip -fSL "http://cdn.onpublic.ru/dle/dle${DLE_VERSION}_utf8.zip"; \
