@@ -1,7 +1,7 @@
 FROM php:5.6-apache
 
-ARG UID=1000
-ARG GID=1000
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
 WORKDIR /tmp
 
@@ -13,8 +13,8 @@ RUN set -ex; \
         unzip; \
     docker-php-ext-install mysql mysqli;
 
-RUN usermod -u ${UID} www-data
-RUN groupmod -g ${GID} www-data
+RUN usermod -u ${USER_ID} www-data
+RUN groupmod -g ${GROUP_ID} www-data
 
 RUN a2enmod rewrite expires
 
