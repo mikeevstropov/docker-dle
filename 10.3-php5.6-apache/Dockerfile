@@ -11,7 +11,7 @@ RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
         unzip; \
-    docker-php-ext-install mysql mysqli pdo pdo_mysql;
+    docker-php-ext-install mysql mysqli pdo pdo_mysql zip;
 
 RUN usermod -u ${USER_ID} www-data
 RUN groupmod -g ${GROUP_ID} www-data
