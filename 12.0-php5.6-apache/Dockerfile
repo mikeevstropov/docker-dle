@@ -10,7 +10,8 @@ ENV DLE_VERSION 12.0
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-        unzip; \
+        unzip \
+        zlib1g-dev; \
     docker-php-ext-install mysql mysqli pdo pdo_mysql zip;
 
 RUN usermod -u ${USER_ID} www-data
