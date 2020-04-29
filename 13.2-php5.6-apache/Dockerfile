@@ -10,8 +10,8 @@ ENV DLE_VERSION 13.2
 RUN set -ex; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
-        unzip \
-        zlib1g-dev; \
+      unzip \
+      zlib1g-dev; \
     docker-php-ext-install mysql mysqli pdo pdo_mysql zip;
 
 RUN usermod -u ${USER_ID} www-data
@@ -19,7 +19,7 @@ RUN groupmod -g ${GROUP_ID} www-data
 
 RUN a2enmod rewrite expires
 
-RUN curl -o dle.zip -fSL "http://cdn.onpublic.ru/dle/dle${DLE_VERSION}_utf8.zip"
+RUN curl -o dle.zip -fSL "https://cdn.sourcehouse.ru/dle/dle${DLE_VERSION}_utf8.zip"
 
 VOLUME /var/www/html
 

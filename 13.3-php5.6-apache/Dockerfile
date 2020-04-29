@@ -5,7 +5,7 @@ ARG GROUP_ID=1000
 
 WORKDIR /tmp
 
-ENV DLE_VERSION 11.2
+ENV DLE_VERSION 13.3
 
 RUN set -ex; \
     apt-get update; \
