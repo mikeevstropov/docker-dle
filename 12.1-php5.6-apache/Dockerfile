@@ -9,15 +9,12 @@ ENV DLE_VERSION 12.1
 
 RUN set -ex; \
     apt-get update; \
-    apt-get install -y --no-install-recommends \
-      unzip \
-      zlib1g-dev; \
+    apt-get install -y --no-install-recommends unzip zlib1g-dev; \
     docker-php-ext-install mysql mysqli pdo pdo_mysql zip;
 
-RUN usermod -u ${USER_ID} www-data
-RUN groupmod -g ${GROUP_ID} www-data
-
-RUN a2enmod rewrite expires
+RUN usermod -u ${USER_ID} www-data; \
+    groupmod -g ${GROUP_ID} www-data; \
+    a2enmod rewrite expires;
 
 RUN curl -o dle.zip -fSL "https://cdn.sourcehouse.ru/dle/dle${DLE_VERSION}_utf8.zip"
 
